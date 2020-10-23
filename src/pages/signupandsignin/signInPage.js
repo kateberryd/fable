@@ -1,11 +1,11 @@
 import React from 'react';
 import SignUp from '../../components/signinandsignup/signup.component';
 import SignIn from '../../components/signinandsignup/signin.component';
-import bgImage1 from '../../assets/media/bg/bg-10.jpg';
-import bgImage2 from '../../assets/media/bg/bg-3.jpg';
-import lightLogo from '../../assets/media/logos/logo-light.png';
-import darkLogo from '../../assets/media/logos/logo-dark.png';
-import userIcon from '../../assets/media/users/300_21.jpg';
+import bgImage1 from '../../_assets/media/bg/bg-10.jpg';
+import bgImage2 from '../../_assets/media/bg/bg-3.jpg';
+import lightLogo from '../../_assets/media/logos/logo-light.png';
+import darkLogo from '../../_assets/media/logos/logo-dark.png';
+import userIcon from '../../_assets/media/users/300_21.jpg';
 
 let styles = {
     bannerImage:{

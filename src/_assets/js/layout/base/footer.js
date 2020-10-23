@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutFooter = function() {
     // Private properties
@@ -36,7 +33,5 @@ var KTLayoutFooter = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutFooter;
+	module.exports = KTLayoutFooter;
 }
-
-export default KTLayoutFooter;

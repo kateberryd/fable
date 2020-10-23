@@ -1,9 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTLayoutContent from "./../base/content.js";
-import { KTCookie } from "./../../components/cookie.js";
 
 // Class definition
 var KTLayoutChat = function () {
@@ -171,7 +166,5 @@ var KTLayoutChat = function () {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutChat;
+	module.exports = KTLayoutChat;
 }
-
-export default KTLayoutChat;

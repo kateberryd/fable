@@ -1,10 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import KTLayoutHeader from "./header.js";
-import KTCard from "./../../components/card.js";
-import { KTUtil } from "./../../components/util.js";
-import KTLayoutSubheader from "./subheader.js";
 
 var KTLayoutStickyCard = function() {
     // Private properties
@@ -92,7 +86,5 @@ var KTLayoutStickyCard = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutStickyCard;
+	module.exports = KTLayoutStickyCard;
 }
-
-export default KTLayoutStickyCard;

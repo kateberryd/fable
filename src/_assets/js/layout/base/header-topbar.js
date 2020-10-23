@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import KTToggle from "./../../components/toggle.js";
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutHeaderTopbar = function() {
     // Private properties
@@ -11,11 +7,11 @@ var KTLayoutHeaderTopbar = function() {
 
     // Private functions
     var _init = function() {
-		_toggleObject = new KTToggle(_toggleElement, {
-			target: KTUtil.getBody(),
-			targetState: 'topbar-mobile-on',
-			toggleState: 'active'
-		});
+			_toggleObject = new KTToggle(_toggleElement, {
+				target: KTUtil.getBody(),
+				targetState: 'topbar-mobile-on',
+				toggleState: 'active',
+			});
     }
 
     // Public methods
@@ -39,7 +35,5 @@ var KTLayoutHeaderTopbar = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutHeaderTopbar;
+	module.exports = KTLayoutHeaderTopbar;
 }
-
-export default KTLayoutHeaderTopbar;

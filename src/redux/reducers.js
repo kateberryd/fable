@@ -6,6 +6,7 @@ import authentication from './authentication/reducer';
 import profile from './profile/reducer';
 import product from './product/reducer';
 import settings from './settings/reducer';
+import agent from './agents/reducer';
 
 const reducers = combineReducers({
     alert,
@@ -13,6 +14,7 @@ const reducers = combineReducers({
     settings,
     profile,
     product,
+    agent,
     errors
 });
 

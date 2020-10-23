@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import KTOffcanvas from "./../../components/offcanvas.js";
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutQuickCartPanel = function() {
     // Private properties
@@ -80,7 +76,5 @@ var KTLayoutQuickCartPanel = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutQuickCartPanel;
+	module.exports = KTLayoutQuickCartPanel;
 }
-
-export default KTLayoutQuickCartPanel;

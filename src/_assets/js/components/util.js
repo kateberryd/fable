@@ -1,9 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import PerfectScrollbar from "perfect-scrollbar";
-
-import { KTCookie } from "./cookie.js";
 
 /**
  * @class KTUtil  base utilize class that privides helper functions
@@ -132,7 +127,7 @@ window.KTUtilElementDataStore = {};
 window.KTUtilElementDataStoreID = 0;
 window.KTUtilDelegatedEventHandlers = {};
 
-export var KTUtil = function() {
+var KTUtil = function() {
     var resizeHandlers = [];
 
     /** @type {object} breakpoints The device width breakpoints **/
@@ -1556,23 +1551,6 @@ export var KTUtil = function() {
 
                 // Remember scroll position in cookie
                 var uid = KTUtil.attr(element, 'id');
-                try {
-                  if (uid) {
-                    var cookie = KTCookie.getCookie(uid);
-                    if (options.rememberPosition === true && cookie) {
-                      var pos = parseInt(cookie);
-                      if (pos > 0) {
-                          element.scrollTop = pos;
-                      }
-                      element.addEventListener('ps-scroll-y', function() {
-                          KTCookie.setCookie(uid, element.scrollTop, {});
-                      });
-                    }
-                  }
-                }
-                catch (e) {
-                    console.error(e);
-                }
                 // Consider using Localstorage
                 //if (options.rememberPosition === true && Cookies && uid) {
                 //    if (KTCookie.getCookie(uid)) {
@@ -1816,7 +1794,7 @@ export var KTUtil = function() {
 
 // webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    // module.exports = KTUtil;
+    module.exports = KTUtil;
 }
 
 // Initialize KTUtil class on document ready

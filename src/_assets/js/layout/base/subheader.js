@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutSubheader = function() {
     // Private properties
@@ -44,7 +41,5 @@ var KTLayoutSubheader = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutSubheader;
+	module.exports = KTLayoutSubheader;
 }
-
-export default KTLayoutSubheader;

@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./util";
 
 // Component Definition
 var KTOffcanvas = function(elementId, options) {
@@ -300,7 +297,5 @@ var KTOffcanvas = function(elementId, options) {
 
 // webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    // module.exports = KTOffcanvas;
+    module.exports = KTOffcanvas;
 }
-
-export default KTOffcanvas;

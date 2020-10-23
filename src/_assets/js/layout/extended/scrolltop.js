@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import KTScrolltop from "./../../components/scrolltop.js";
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutScrolltop = function() {
     // Private properties
@@ -38,7 +34,5 @@ var KTLayoutScrolltop = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutScrolltop;
+	module.exports = KTLayoutScrolltop;
 }
-
-export default KTLayoutScrolltop;

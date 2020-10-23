@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTOffcanvas from "./../../components/offcanvas.js";
 
 var KTLayoutQuickUser = function() {
     // Private properties
@@ -71,7 +67,5 @@ var KTLayoutQuickUser = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutQuickUser;
+	module.exports = KTLayoutQuickUser;
 }
-
-export default KTLayoutQuickUser;

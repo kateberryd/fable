@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
 //
 // Handle User Quick Search For Dropdown, Inline and Offcanvas Search Panels
 //
@@ -173,10 +170,8 @@ var KTLayoutSearch = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-    // module.exports = KTLayoutSearch;
+    module.exports = KTLayoutSearch;
 }
 
 var KTLayoutSearchInline = KTLayoutSearch;
 var KTLayoutSearchOffcanvas = KTLayoutSearch;
-
-export default KTLayoutSearch;

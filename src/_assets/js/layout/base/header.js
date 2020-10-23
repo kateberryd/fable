@@ -1,31 +1,12 @@
-/* eslint-disable */
 "use strict";
 
-import KTHeader from "./../../components/header.js";
-import { KTUtil } from "./../../components/util.js";
-
 var KTLayoutHeader = function() {
-    // Private Properties
+    // Private properties
     var _element;
     var _elementForMobile;
     var _object;
 
-	// Private Functions
-	var _init = function() {
-		var options = {
-            offset: {
-                desktop: 300,
-                tabletAndMobile: false
-            },
-            releseOnReverse: {
-                desktop: true,
-                tabletAndMobile: false
-            }
-		};
-
-		_object = new KTHeader(_element, options);
-	}
-
+	// Private functions
     // Get Height
     var _getHeight = function() {
         var height = 0;
@@ -55,9 +36,6 @@ var KTLayoutHeader = function() {
             if (!_element) {
                 return;
             }
-
-            // Initialize
-            _init();
 		},
 
         isFixed: function() {
@@ -92,7 +70,5 @@ var KTLayoutHeader = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutHeader;
+	module.exports = KTLayoutHeader;
 }
-
-export default KTLayoutHeader;

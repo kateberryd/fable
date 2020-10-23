@@ -4,7 +4,9 @@ import jwt_decode from 'jwt-decode';
 import {Provider} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 
-import FarmerDashboard from './pages/admin/layouts/layouts';
+import UsersPage from './pages/admin/users/allUsers';
+import AgentsPage from './pages/admin/agents/allAgents';
+import AddAgentPage from './pages/admin/agents/addAgent';
 import SignInPage from './pages/signupandsignin/signInPage';
 
 
@@ -36,12 +38,13 @@ const App = () => {
   }
     
   return (
-    <div className="App">
+    <div id="kt_body"  className="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
        <Provider store={store}>
           <Switch>
             <Route exact path="/" component={SignInPage} />
-            <PrivateRoute  path="/dashboard" component={FarmerDashboard} />
-           
+            <PrivateRoute  path="/dashboard" component={UsersPage} />
+            <PrivateRoute  path="/agents" component={AgentsPage} />
+            <PrivateRoute  path="/add-agent" component={AddAgentPage} />
           </Switch>
        </Provider>
      

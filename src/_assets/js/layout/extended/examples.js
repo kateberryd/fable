@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
 
 var KTLayoutExamples = function() {
 
@@ -107,7 +104,5 @@ var KTLayoutExamples = function() {
 
 // webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    // module.exports = KTLayoutExamples;
+    module.exports = KTLayoutExamples;
 }
-
-export default KTLayoutExamples;

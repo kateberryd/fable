@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTLayoutContent from "./content.js";
 
 var KTLayoutStretchedCard = function() {
     // Private properties
@@ -55,7 +51,5 @@ var KTLayoutStretchedCard = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutStretchedCard;
+	module.exports = KTLayoutStretchedCard;
 }
-
-export default KTLayoutStretchedCard;

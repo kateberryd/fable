@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTOffcanvas from "./../../components/offcanvas.js";
 
 var KTLayoutQuickSearch = function() {
     // Private properties
@@ -82,7 +78,5 @@ var KTLayoutQuickSearch = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutQuickSearch;
+	module.exports = KTLayoutQuickSearch;
 }
-
-export default KTLayoutQuickSearch;

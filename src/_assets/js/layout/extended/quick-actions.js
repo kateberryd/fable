@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTOffcanvas from "./../../components/offcanvas.js";
 
 var KTLayoutQuickActions = function() {
     // Private properties
@@ -71,7 +67,5 @@ var KTLayoutQuickActions = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutQuickActions;
+	module.exports = KTLayoutQuickActions;
 }
-
-export default KTLayoutQuickActions;

@@ -1,9 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTMenu from "./../../components/menu.js";
-import KTLayoutAside from "./aside.js";
 
 var KTLayoutAsideMenu = function() {
     // Private properties
@@ -15,11 +10,15 @@ var KTLayoutAsideMenu = function() {
 		var menuDesktopMode = (KTUtil.attr(_element, 'data-menu-dropdown') === '1' ? 'dropdown' : 'accordion');
         var scroll;
 
-		if (KTUtil.isBreakpointDown('lg') && KTUtil.attr(_element, 'data-menu-scroll') === '1') {
+		if (KTUtil.attr(_element, 'data-menu-scroll') === '1') {
 			scroll = {
 				rememberPosition: true, // remember position on page reload
 				height: function() { // calculate available scrollable area height
 					var height = parseInt(KTUtil.getViewPort().height);
+
+					if (KTUtil.isBreakpointUp('lg')) {
+						height = height - KTLayoutBrand.getHeight();
+					}
 
 					height = height - (parseInt(KTUtil.css(_element, 'marginBottom')) + parseInt(KTUtil.css(_element, 'marginTop')));
 
@@ -45,7 +44,14 @@ var KTLayoutAsideMenu = function() {
 			}
 		});
 
-		 // Close aside offcanvas panel before page reload On tablet and mobile
+        // Disable menu click if aside is fixed and minimized
+        _menuObject.on('submenuToggle', function(menu) {
+            if (KTLayoutAside.isMinimized() === true  && KTLayoutAside.isHoverable() === false) {
+                return false;
+            }
+        });
+
+        // Close aside offcanvas panel before page reload On tablet and mobile
         _menuObject.on('linkClick', function(menu) {
             if (KTUtil.isBreakpointDown('lg')) { // Tablet and mobile mode
                 KTLayoutAside.getOffcanvas().hide(); // Hide offcanvas after general link click
@@ -90,7 +96,5 @@ var KTLayoutAsideMenu = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutAsideMenu;
+	module.exports = KTLayoutAsideMenu;
 }
-
-export default KTLayoutAsideMenu;

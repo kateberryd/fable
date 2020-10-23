@@ -1,9 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import KTOffcanvas from "./../../components/offcanvas.js";
-import { KTUtil } from "./../../components/util.js";
-import { KTCookie } from "./../../components/cookie.js";
 
 var KTLayoutDemoPanel = function() {
     // Private properties
@@ -107,7 +102,5 @@ var KTLayoutDemoPanel = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutDemoPanel;
+	module.exports = KTLayoutDemoPanel;
 }
-
-export default KTLayoutDemoPanel;

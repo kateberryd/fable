@@ -1,8 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./../../components/util.js";
-import KTOffcanvas from "./../../components/offcanvas.js";
 
 var KTLayoutQuickNotifications = function() {
     // Private properties
@@ -71,7 +67,5 @@ var KTLayoutQuickNotifications = function() {
 
 // Webpack support
 if (typeof module !== 'undefined') {
-	// module.exports = KTLayoutQuickNotifications;
+	module.exports = KTLayoutQuickNotifications;
 }
-
-export default KTLayoutQuickNotifications;

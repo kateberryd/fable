@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./util";
 
 // Component Definition 
 var KTImageInput = function(elementId, options) {
@@ -189,7 +186,5 @@ var KTImageInput = function(elementId, options) {
 
 // webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    // module.exports = KTImageInput;
+    module.exports = KTImageInput;
 }
-
-export default KTImageInput;

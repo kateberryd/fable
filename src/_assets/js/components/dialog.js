@@ -1,7 +1,4 @@
-/* eslint-disable */
 "use strict";
-
-import { KTUtil } from "./util";
 
 // Component Definition 
 var KTDialog = function(options) {
@@ -186,7 +183,5 @@ var KTDialog = function(options) {
 
 // webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    // module.exports = KTDialog;
+    module.exports = KTDialog;
 }
-
-export default KTDialog;
