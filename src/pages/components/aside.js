@@ -84,6 +84,20 @@ const Aside = () => {
                        </div>
                     </li>
                     <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                       <a href="javascript:;" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Station</span><i className="menu-arrow" /></a>
+                       <div className="menu-submenu ">
+                          <i className="menu-arrow" />
+                          <ul className="menu-subnav">
+                             <li className="menu-item " aria-haspopup="true"><a href="/add-station" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span />
+                                </i><span className="menu-text">Add Station</span></a>
+                             </li>
+                             <li className="menu-item " aria-haspopup="true"><a href="/stations" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span />
+                                </i><span className="menu-text">All Station</span></a>
+                             </li>
+                          </ul>
+                       </div>
+                       </li>
+                    <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                        <a href="javascript:;" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Agents</span><i className="menu-arrow" /></a>
                        <div className="menu-submenu ">
                           <i className="menu-arrow" />

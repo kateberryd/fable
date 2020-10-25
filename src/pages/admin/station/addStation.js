@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-
-import { createAgent } from '../../../redux/agents/action';
+import {createStation} from '../../../redux/station/action'
 
 import Header from '../../components/header';
 import Aside from '../../components/aside';
-import {CreateAgentForm} from './CreateAgentFrom';
+import {createStationForm, CreateStationForm} from './createStationForm';
 
 
 
-class AddAgent extends React.Component{
+class AddStation extends React.Component{
     
     constructor(){
         super()
@@ -27,9 +26,26 @@ class AddAgent extends React.Component{
         }
     }
     
+    handleSubmit = async event => {
+      
+        event.preventDefault();
+        const {username,phone, email, center, password, confirmpassword, showLoading} = this.state;
+        const formData = {username, phone, email, center, password, confirmpassword, showLoading}
+        const {createStation} = this.props;
+        this.setState({showLoading: true})
+        createStation(formData);
+        // console.log(formData);
+       
+    }
+    handleChange =  event => {
+        const {value, name} = event.target;
+        this.setState({[name]: value})
+       
+    }
+    
     
     render(){
-        const {createAgent} = this.props;
+   
         return(
             <div>
                 <Header />
@@ -43,7 +59,7 @@ class AddAgent extends React.Component{
                         <div className="d-flex align-items-center flex-wrap mr-2">
                         {/*begin::Title*/}
                         <h5 className="text-dark font-weight-bold mt-2 mb-2 mr-5">
-                            Add Agent                          </h5>
+                            Add Station                          </h5>
                         {/*end::Title*/}
                         {/*begin::Separator*/}
                         <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200" />
@@ -107,8 +123,8 @@ class AddAgent extends React.Component{
                         </a>
                         {/*end::Button*/}
                         {/*begin::Button*/}
-                        <a href="/add-agent" className="btn btn-light-primary font-weight-bold ml-2">
-                            Add Agent                </a>
+                        <a href="/add-Station" className="btn btn-light-primary font-weight-bold ml-2">
+                            Add Station                </a>
                         {/*end::Button*/}
                         {/*begin::Dropdown*/}
                         <div className="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
@@ -177,7 +193,7 @@ class AddAgent extends React.Component{
                             <div className="container">
                                 <div className="card card-custom gutter-b">
                                     <div className="card-body">
-                                        <CreateAgentForm createAgent={createAgent} />
+                                        <CreateStationForm createStation={createStation} />
                                     </div>
                                 </div>
                             </div>
@@ -191,16 +207,16 @@ class AddAgent extends React.Component{
     }
 }
 
-AddAgent.propTypes = {
+AddStation.propTypes = {
     setAlert: PropTypes.func.isRequired,
-    agent: PropTypes.func.isRequired,
+    station: PropTypes.func.isRequired,
   }
   
   const mapStateToProps = (state) => ({
     authentication: state.authentication,
-    agent: state.agent,
+    station: state.station,
     errors: state.errors
   })
   
 
-  export default connect(mapStateToProps, {createAgent})(withRouter(AddAgent));
+  export default connect(mapStateToProps, {createStation})(withRouter(AddStation));

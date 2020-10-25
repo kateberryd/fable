@@ -7,6 +7,7 @@ import profile from './profile/reducer';
 import product from './product/reducer';
 import settings from './settings/reducer';
 import agent from './agents/reducer';
+import station from './station/reducer';
 
 const reducers = combineReducers({
     alert,
@@ -15,6 +16,7 @@ const reducers = combineReducers({
     profile,
     product,
     agent,
+    station,
     errors
 });
 

@@ -7,6 +7,8 @@ import {Switch, Route} from 'react-router-dom';
 import UsersPage from './pages/admin/users/allUsers';
 import AgentsPage from './pages/admin/agents/allAgents';
 import AddAgentPage from './pages/admin/agents/addAgent';
+import StationsPage from './pages/admin/station/allStation';
+import AddStationPage from './pages/admin/station/addStation';
 import SignInPage from './pages/signupandsignin/signInPage';
 
 
@@ -45,6 +47,7 @@ const App = () => {
             <PrivateRoute  path="/dashboard" component={UsersPage} />
             <PrivateRoute  path="/agents" component={AgentsPage} />
             <PrivateRoute  path="/add-agent" component={AddAgentPage} />
+            <PrivateRoute  path="/add-station" component={AddStationPage} />
           </Switch>
        </Provider>
      
