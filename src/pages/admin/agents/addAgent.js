@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
+
 import { createAgent } from '../../../redux/agents/action';
 
 import Header from '../../components/header';
 import Aside from '../../components/aside';
 import {CreateAgentForm} from './CreateAgentFrom';
+
+
 
 
 
@@ -29,7 +32,7 @@ class AddAgent extends React.Component{
     
     
     render(){
-        const {createAgent} = this.props;
+        const {createAgent, authentication, } = this.props;
         return(
             <div>
                 <Header />
@@ -177,7 +180,7 @@ class AddAgent extends React.Component{
                             <div className="container">
                                 <div className="card card-custom gutter-b">
                                     <div className="card-body">
-                                        <CreateAgentForm createAgent={createAgent} />
+                                        <CreateAgentForm createAgent={createAgent} auth={authentication} />
                                     </div>
                                 </div>
                             </div>
@@ -199,8 +202,10 @@ AddAgent.propTypes = {
   const mapStateToProps = (state) => ({
     authentication: state.authentication,
     agent: state.agent,
-    errors: state.errors
+    errors: state.errors,
+    alert: state.alert
   })
+  
   
 
   export default connect(mapStateToProps, {createAgent})(withRouter(AddAgent));

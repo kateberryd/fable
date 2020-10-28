@@ -33,7 +33,8 @@ const CreateStationSchema = Yup.object().shape({
    
   })
 
-export function CreateStationForm({createStation}) {
+export function CreateStationForm({createStation, user}) {
+    // console.log(createStation())
   return(
     <Formik
     initialValues={{
@@ -44,15 +45,13 @@ export function CreateStationForm({createStation}) {
         station_city: '',
         station_state: '',
         station_lga: '',
+        adminId: user._id
        
        
     }}
     validationSchema={CreateStationSchema}
     onSubmit={values => {
-        console.log(values)
-
-        
-        console.log(StateAndLocal);
+        console.log( createStation(values) )
        
     }}
     >
@@ -128,7 +127,7 @@ export function CreateStationForm({createStation}) {
             <div className="form-group row">
                 <label className="col-xl-3 col-lg-3 col-form-label">Station City</label>
                 <div className="col-lg-9 col-xl-9">
-                <MySelect
+                {/* <MySelect
                     value={values.station_city}
                     onChange={setFieldValue}
                     onBlur={setFieldTouched}
@@ -137,7 +136,15 @@ export function CreateStationForm({createStation}) {
                     name="station_city"
                     options={StateAndLocal}
                     
-                />
+                /> */}
+                <div className="input-group input-group-solid input-group-lg">
+                    <div className="input-group-prepend"><span className="input-group-text"><i className="la la-home" /></span></div>
+                    <Field type="text" className="form-control form-control-solid form-control-lg" name="station_city"  />
+                 
+                </div>
+                    {errors.station_city && touched.station_city ? (
+                        <div className="text-danger">{errors.station_city}</div>
+                    ) : null}
                  
                 </div>
             </div>
@@ -146,7 +153,7 @@ export function CreateStationForm({createStation}) {
             <div className="form-group row">
                 <label className="col-xl-3 col-lg-3 col-form-label">Station State</label>
                 <div className="col-lg-9 col-xl-9">
-                <MySelect
+                {/* <MySelect
                     value={values.station_state}
                     onChange={setFieldValue}
                     onBlur={setFieldTouched}
@@ -154,8 +161,15 @@ export function CreateStationForm({createStation}) {
                     touched={touched.station_state}
                     name="station_state"
                     options={StateAndLocal}
-                />
-                 
+                /> */}
+                <div className="input-group input-group-solid input-group-lg">
+                    <div className="input-group-prepend"><span className="input-group-text"><i className="la la-home" /></span></div>
+                    <Field type="text" className="form-control form-control-solid form-control-lg" name="station_state"  />
+                   
+                </div>
+                {errors.station_state && touched.station_state ? (
+                     <div className="text-danger">{errors.station_state}</div>
+                  ) : null}
                 </div>
             </div>
             {/*end::Group*/}
@@ -163,7 +177,7 @@ export function CreateStationForm({createStation}) {
             <div className="form-group row">
                 <label className="col-xl-3 col-lg-3 col-form-label">Station LGA</label>
                 <div className="col-lg-9 col-xl-9">
-                <MySelect
+                {/* <MySelect
                     value={values.station_lga}
                     onChange={setFieldValue}
                     onBlur={setFieldTouched}
@@ -171,7 +185,15 @@ export function CreateStationForm({createStation}) {
                     touched={touched.station_lga}
                     name="station_lga"
                     options={StateAndLocal}
-                />
+                /> */}
+                <div className="input-group input-group-solid input-group-lg">
+                    <div className="input-group-prepend"><span className="input-group-text"><i className="la la-home" /></span></div>
+                    <Field type="text" className="form-control form-control-solid form-control-lg" name="station_lga"  />
+                   
+                </div>
+                {errors.station_lga && touched.station_lga ? (
+                     <div className="text-danger">{errors.station_lga}</div>
+                  ) : null}
                 </div>
             </div>
             {/*end::Group*/}

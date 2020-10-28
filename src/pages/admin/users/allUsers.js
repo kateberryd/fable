@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import {getUserList} from '../../../redux/users/action';
 
 import Header from '../../components/header';
 import Aside from '../../components/aside';
@@ -9,8 +13,12 @@ class AllUsers extends React.Component{
         super();
     }
     
-    
+    componentDidMount(){
+        this.props.getUserList();
+    }
     render(){
+       const {getUserList} = this.props.users;
+       console.log(getUserList);
         return(
             <div>
                 <Header />
@@ -176,7 +184,7 @@ class AllUsers extends React.Component{
                             <div className="container">
                                 <div className="card card-custom gutter-b">
                                     <div className="card-body">
-                                        <Table />
+                                        <Table data={getUserList}/>
                                     </div>
                                 </div>
                             </div>
@@ -188,4 +196,16 @@ class AllUsers extends React.Component{
     }
 }
 
-export default AllUsers;
+ AllUsers.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    getUserList: PropTypes.func.isRequired,
+  }
+  
+  const mapStateToProps = (state) => ({
+    authentication: state.authentication,
+    users: state.users,
+    errors: state.errors
+  })
+  
+
+  export default connect(mapStateToProps, {getUserList})(withRouter(AllUsers));

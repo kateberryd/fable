@@ -3,7 +3,7 @@ import {
     SET_ALERT,
     REMOVE_ALERT,
     CLOSE_ALERT
-} from '../constants/';
+} from './constant';
 
 
 export const setAlert = (msg, alertType, timeOut = 2000) => dispatch => {

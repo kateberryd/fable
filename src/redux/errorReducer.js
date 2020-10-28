@@ -1,12 +1,17 @@
-import {GET_ERRORS} from './constants/index';
+// errorReducer.js
 
-
-const initialState = {};
- export default function (state = initialState, action){
-     switch(action.type){
-         case GET_ERRORS:
-            return action.payload
-        default:
-        return state 
-     }
- }
+const initState = {
+    error: null
+   };
+   
+   export default function errorReducer(state = initState, action){
+    const { error } = action;
+   
+    if(error){
+    return {
+    error: error
+    }
+    }
+   
+    return state;
+   }

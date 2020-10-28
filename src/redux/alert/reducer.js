@@ -2,7 +2,7 @@ import {
     SET_ALERT,
     REMOVE_ALERT,
     CLOSE_ALERT
-} from '../constants/';
+} from './constant';
 
 const INIT_STATE = [];
 

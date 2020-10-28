@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import { createAgent } from '../../../redux/agents/action';
+import { getAgentList } from '../../../redux/agents/action';
 
 import Header from '../../components/header';
 import Aside from '../../components/aside';
@@ -14,7 +14,10 @@ class AllAgents extends React.Component{
         super();
     }
     
-    
+    componentDidMount(){
+        
+        this.props.getAgentList();
+    }
     render(){
         return(
             <div>
@@ -193,4 +196,18 @@ class AllAgents extends React.Component{
     }
 }
 
-export default AllAgents;
+AllAgents.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    agent: PropTypes.func.isRequired,
+    getAgentList: PropTypes.func.isRequired
+}
+const mapStateToProps = (state) => ({
+    authentication: state.authentication,
+    agent: state.agent,
+    errors: state.errors,
+    alert: state.alert
+  })
+  
+  
+
+export default connect(mapStateToProps, {getAgentList})(withRouter(AllAgents));

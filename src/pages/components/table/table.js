@@ -20,9 +20,9 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 let counter = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, email, phone, UserRole, Location) {
   counter += 1;
-  return { id: counter, name, calories, fat, carbs, protein };
+  return { id: counter, name, email, phone, UserRole, Location };
 }
 
 function desc(a, b, orderBy) {
@@ -50,11 +50,11 @@ function getSorting(order, orderBy) {
 }
 
 const rows = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+  { id: 'name', numeric: false, disablePadding: true, label: 'Name' },
+  { id: 'email', numeric: true, disablePadding: false, label: 'email' },
+  { id: 'phone', numeric: true, disablePadding: false, label: 'phone' },
+  { id: 'UserRole', numeric: true, disablePadding: false, label: 'UserRole' },
+  { id: 'Location', numeric: true, disablePadding: false, label: 'Location ' },
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -156,7 +156,7 @@ let EnhancedTableToolbar = props => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Nutrition
+           Users
           </Typography>
         )}
       </div>
@@ -201,9 +201,10 @@ const styles = theme => ({
 });
 
 class EnhancedTable extends React.Component {
+
   state = {
     order: 'asc',
-    orderBy: 'calories',
+    orderBy: 'email',
     selected: [],
     data: [
       createData('Cupcake', 305, 3.7, 67, 4.3),
@@ -223,6 +224,7 @@ class EnhancedTable extends React.Component {
     page: 0,
     rowsPerPage: 5,
   };
+
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -273,7 +275,12 @@ class EnhancedTable extends React.Component {
   };
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
-
+  
+  // componentDidMount(){
+  //   const data = this.props.data;
+  //   this.setState(dat)
+  // }
+   
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
@@ -313,10 +320,10 @@ class EnhancedTable extends React.Component {
                       <TableCell component="th" scope="row" padding="none">
                         {n.name}
                       </TableCell>
-                      <TableCell align="right">{n.calories}</TableCell>
-                      <TableCell align="right">{n.fat}</TableCell>
-                      <TableCell align="right">{n.carbs}</TableCell>
-                      <TableCell align="right">{n.protein}</TableCell>
+                      <TableCell align="right">{n.email}</TableCell>
+                      <TableCell align="right">{n.phone}</TableCell>
+                      <TableCell align="right">{n.UserRole}</TableCell>
+                      <TableCell align="right">{n.Location}</TableCell>
                     </TableRow>
                   );
                 })}

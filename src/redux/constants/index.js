@@ -8,10 +8,7 @@ export const SIDEBAR_POSITION = 'SIDEBAR_POSITION';
 export const HEADER_POSITION = 'HEADER_POSITION';
 export const LAYOUT = 'LAYOUT';
 export const SIDEBAR_TYPE = 'SIDEBAR_TYPE';
-// Alerts
-export const SET_ALERT = 'SET_ALERT';
-export const REMOVE_ALERT = 'REMOVE_ALERT';
-export const CLOSE_ALERT = 'CLOSE_ALERT';
+
 // Register
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';

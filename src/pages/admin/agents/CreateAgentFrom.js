@@ -2,7 +2,9 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useSelector, useDispatch } from 'react-redux'
 
+import Alert from '../../../components/alert/alert'
 
 // Validation schema
 const CreateAgentSchema = Yup.object().shape({
@@ -24,7 +26,7 @@ const CreateAgentSchema = Yup.object().shape({
         .min(7, 'Password must be atleast 8 characters!')
         .max(50, 'Too Long!')
         .required('Password field is required'),
-    confirmpassword: Yup.string()
+    confirmPassword: Yup.string()
         .label('Confirm Password')
         .required('Confirm password field is required ')
         .test('passwords-match', 'Passwords does not match', function(value) {
@@ -32,7 +34,8 @@ const CreateAgentSchema = Yup.object().shape({
         }),
   })
 
-export function CreateAgentForm({createAgent}) {
+export function CreateAgentForm({createAgent, auth, }) {
+ const error = useSelector(state => state.agent.error);
   return(
     <Formik
     initialValues={{
@@ -41,19 +44,20 @@ export function CreateAgentForm({createAgent}) {
         email: '',
         center: '',
         password: '',
-        confirmpassword: '',
+        confirmPassword: '',
+        adminId: auth.user._id
        
     }}
     validationSchema={CreateAgentSchema}
     onSubmit={values => {
         createAgent(values);
-       
     }}
     >
     {({ errors, touched }) => (
         <Form className="form" id="kt_form">
-       
+        <Alert />
         <div className="row justify-content-center">
+        {error && <p className='text-danger'>{error.username}</p>}
         <div className="col-xl-9">
             {/*begin::Wizard Step 1*/}
             <div className="my-5 step" >
@@ -140,10 +144,10 @@ export function CreateAgentForm({createAgent}) {
                 <div className="col-lg-9 col-xl-9">
                 <div className="input-group input-group-solid input-group-lg">
                     <div className="input-group-prepend"><span className="input-group-text"><i className="la la-lock" /></span></div>
-                    <Field type="password" className="form-control form-control-solid form-control-lg" name="confirmpassword"  />
+                    <Field type="password" className="form-control form-control-solid form-control-lg" name="confirmPassword"  />
                 </div>
-                {errors.confirmpassword && touched.confirmpassword ? (
-                        <div className="text-danger">{errors.confirmpassword}</div>
+                {errors.confirmPassword && touched.confirmPassword ? (
+                        <div className="text-danger">{errors.confirmPassword}</div>
                 ) : null}
                 </div>
             </div>

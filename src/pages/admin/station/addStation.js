@@ -45,7 +45,7 @@ class AddStation extends React.Component{
     
     
     render(){
-   
+        const {createStation, authentication} = this.props;
         return(
             <div>
                 <Header />
@@ -193,7 +193,7 @@ class AddStation extends React.Component{
                             <div className="container">
                                 <div className="card card-custom gutter-b">
                                     <div className="card-body">
-                                        <CreateStationForm createStation={createStation} />
+                                        <CreateStationForm createStation={createStation} user={authentication.user} />
                                     </div>
                                 </div>
                             </div>

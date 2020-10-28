@@ -1,48 +1,50 @@
 import axios from '../../utils/axios';
 import { setAlert } from '../alert/action';
-import jwt_decode from 'jwt-decode';
+
 
 import {
-   CREATE_AGENT,
-   CREATE_AGENT_SUCCESS,
-   CREATE_AGENT_FAILED
+   CREATE_STATION,
+   CREATE_STATION_SUCCESS,
+   CREATE_STATION_FAILED
 } from './constant';
+
 
 // create agent
 
 export const createStation = (formData) => async dispatch => {
-    
     console.log(formData)
-    // await axios.post('/api/admin/login', {
-    //        username: formData.username,
-    //        password: formData.password
-    //    })
-    //    .then(res => {
-    //        const {token } = res.data;
-    //        localStorage.setItem('jwtToken', token);
-    //        setAuthToken(token);
-    //        const decoded = jwt_decode(token);
-    //        dispatch(setCurrentUser(decoded.user))
-    //        console.log(res.data)
-    //    })
-    //    .catch(err => {
-    //        console.log(err)
-    //       if(err){
-    //        dispatch({
-    //            type: GET_ERRORS,
-    //            payload: err.response.data
-    //        })
-    //       }
-    //    })
+    dispatch(setCreateStationLoading());
+    await axios.post('/api/admin/create-station', {
+        adminId: formData.adminId,
+        stationName: formData.station_name,
+        email: formData.station_email,
+        phone: formData.station_phone,
+        address: formData.station_address,
+        city: formData.station_city,
+        state: formData.station_state,
+        lga: formData.station_lga,
+    })
+       .then(res => {
+            dispatch({
+                type: CREATE_STATION_SUCCESS,
+                payload: res.data.station
+            })
+       })
+       .catch(err => {
+           console.log(err.response.data)
+          if(err){
+           dispatch({
+               type: CREATE_STATION_FAILED,
+               payload: err.response.data
+           })
+          }
+       })
 }
 
 
-export const createAgentSuccess = (response) => ({
-    type: CREATE_AGENT_SUCCESS,
-    payload: response,
-});
+export const setCreateStationLoading = () => {
+    return{
+        type: CREATE_STATION,
+    }
+}
 
-export const createAgentFailed = (error) => ({
-    type: CREATE_AGENT_FAILED,
-    payload: error,
-});

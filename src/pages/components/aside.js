@@ -78,7 +78,7 @@ const Aside = () => {
                        <div className="menu-submenu ">
                           <i className="menu-arrow" />
                           <ul className="menu-subnav">
-                             <li className="menu-item  menu-item-active" aria-haspopup="true"><a href="/all-users" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">All Users</span></a></li>
+                             <li className="menu-item  menu-item-active" aria-haspopup="true"><a href="/dashboard" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">All Users</span></a></li>
 
                           </ul>
                        </div>
