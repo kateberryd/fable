@@ -55,6 +55,7 @@ export const register = (formData, history) => async dispatch => {
                  type: GET_ERRORS,
                  payload: err.response.data
              })
+             console.log(err.response)
          })
     }
 

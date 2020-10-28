@@ -53,7 +53,11 @@ import 'react-toastify/dist/ReactToastify.css';
                 <div className="text-center mb-10 mb-lg-20">
                
                 <h3 className>Sign Up</h3> 
-                {errors.message ? <div className="text-danger">{errors.message}</div> : null}
+                {errors.phone ? <div className="text-danger">{errors.phone}</div> : null}
+                {errors.email ? <div className="text-danger">{errors.email}</div> : null}
+                {errors.username ? <div className="text-danger">{errors.username}</div> : null}
+                {errors.password ? <div className="text-danger">{errors.password}</div> : null}
+                {errors.confirmPassword ? <div className="text-danger">{errors.confirmPassword}</div> : null}
                 <form className="form text-left" id="kt_login_signup_form" onSubmit={this.handleSubmit} >
                   <p className="text-muted text-center mt-4 font-weight-bold">Enter your details to create your account</p>
                   <div className="form-group py-2 m-0">
